@@ -1,13 +1,15 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const knightsRoutes = require('./routes/knightRoutes');
 const mongoose = require('mongoose');
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+const dbURI = process.env.DB_URI;
 
-const dbURI = "mongodb://localhost:27017/knight-project";
+const app = express();
 
 mongoose.connect(dbURI)
     .then(() => console.log('MongoDB connected'))
