@@ -3,7 +3,6 @@ const Hero = require('../models/Hero')
 
 exports.getAllKnights = async (req, res) => {
     try {
-        console.log(req.query)
         if (req.query.filter === 'heroes') {
             const heroes = await Hero.find();
             res.status(200).json(heroes);
